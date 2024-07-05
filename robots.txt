@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /private/
+Disallow: /tmp/
+Disallow: /admin/
+
+# Allow all crawlers to access everything else
+Allow: /
+
+# Sitemap location
+Sitemap: https://abroaden.ir/sitemap.xml

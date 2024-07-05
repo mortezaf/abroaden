@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سرور Dns ایران - آبرودن</title>
+    <meta name="description"
+        content="آموزش جامع تنظیمات DNS برای ویندوز، مک، لینوکس، مرورگرها، اندروید و iOS به زبان فارسی. شامل IP DNS، لینک‌های مرتبط و راهنمای تنظیم DNS برای هر سیستم عامل و مرورگر. سرور DNS رایگان ایران برای دسترسی به سایت‌های دولتی و بانک ایران به صورت رایگان. قابل استفاده در تمامی دستگاه ها بدون محدودیت. امن، سریع و بدون نیاز به نرم افزار اضافی.">
+    <meta name="keywords"
+        content="DNS, تنظیمات DNS, IP DNS, DNS tutorial, ویندوز, مک, لینوکس, مرورگرها, اندروید, iOS, آموزش DNS">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="آموزش تنظیمات DNS">
+    <meta property="og:description"
+        content="آموزش جامع تنظیمات DNS برای ویندوز، مک، لینوکس، مرورگرها، اندروید و iOS به زبان فارسی. شامل IP DNS، لینک‌های مرتبط و راهنمای تنظیم DNS برای هر سیستم عامل و مرورگر. سرور DNS رایگان ایران برای دسترسی به سایت‌های دولتی و بانک ایران به صورت رایگان. قابل استفاده در تمامی دستگاه ها بدون محدودیت. امن، سریع و بدون نیاز به نرم افزار اضافی.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.abroaden.ir">
+    <meta property="og:image" content="https://www.abroaden.ir/og-image.jpg">
+    <meta property="og:locale" content="fa_IR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="آموزش تنظیمات DNS">
+    <meta name="twitter:description"
+        content="آموزش جامع تنظیمات DNS برای ویندوز، مک، لینوکس، مرورگرها، اندروید و iOS به زبان فارسی. شامل IP DNS، لینک‌های مرتبط و راهنمای تنظیم DNS برای هر سیستم عامل و مرورگر. سرور DNS رایگان ایران برای دسترسی به سایت‌های دولتی و بانک ایران به صورت رایگان. قابل استفاده در تمامی دستگاه ها بدون محدودیت. امن، سریع و بدون نیاز به نرم افزار اضافی.">
+    <link rel="canonical" href="https://www.abroaden.ir">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/vazir/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="canonical" href="https://www.abroden.ir">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fontsource/vazir/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Vazir', sans-serif;
+            background-color: #2b3064;
+            overflow-x: hidden;
+            overflow-y: scroll;
+            /* Prevents scrolling */
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .transparent-bg {
+            background-color: #1f2937cc;
+        }
+
+        #background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body class="text-indigo-200">
+    <!-- Privacy Policy modal -->
+    <div id="privacy-policy-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        سیاست حفظ حریم خصوصی
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="privacy-policy-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">بستن مدال</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        متن سیاست حفظ حریم خصوصی را در این قسمت وارد کنید.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        اینجا می‌توانید توضیحات مربوط به حفظ حریم خصوصی و قوانین مربوط به داده‌های شخصی را قرار دهید.
+                    </p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="privacy-policy-modal" type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">می‌پذیرم</button>
+                    <button data-modal-hide="privacy-policy-modal" type="button"
+                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">رد
+                        کردن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service modal -->
+    <div id="terms-of-service-modal" tabindex="-1" aria-hidden="true"
+        class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div class="relative p-4 w-full max-w-2xl max-h-full">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                        شرایط خدمات
+                    </h3>
+                    <button type="button"
+                        class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                        data-modal-hide="terms-of-service-modal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                        </svg>
+                        <span class="sr-only">بستن مدال</span>
+                    </button>
+                </div>
+                <!-- Modal body -->
+                <div class="p-4 md:p-5 space-y-4">
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        متن شرایط خدمات را در این قسمت وارد کنید.
+                    </p>
+                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                        اینجا می‌توانید شرایط و قوانین استفاده از خدمات شما را بیان کنید.
+                    </p>
+                </div>
+                <!-- Modal footer -->
+                <div class="flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
+                    <button data-modal-hide="terms-of-service-modal" type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">می‌پذیرم</button>
+                    <button data-modal-hide="terms-of-service-modal" type="button"
+                        class="py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">رد
+                        کردن</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="bg-gray-900 p-8">
+        <nav class="container mx-auto flex justify-between items-center">
+            <img src="./logo-light.svg" class="h-6 me-2" alt="Abroaden Logo">
+            <div class="text-xl font-bold">سرور DNS اختصاصی و رایگان ایران</div>
+            <div>
+                <ul class="flex space-x-4">
+                    <a href="https://pinkary.com/@Fathi"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">راه های ارتباطی و
+                        حمایت
+                        مالی</a>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <div id="marketing-banner" tabindex="-1"
+        class="fixed z-50 flex flex-col md:flex-row justify-between w-[calc(100%-2rem)] mt-10 p-4 -translate-x-1/2 bg-white border border-gray-100 rounded-lg shadow-sm lg:max-w-7xl left-1/2 top-6 dark:bg-gray-700 dark:border-gray-600">
+        <div class="flex flex-col items-start mb-3 me-4 md:items-center md:flex-row md:mb-0">
+            <a href="https://abroaden.ir/"
+                class="flex items-center mb-2 border-gray-200 md:pe-4 md:me-4 md:border-e md:mb-0 dark:border-gray-600">
+                <img src="./logo.svg" class="h-6 me-2" alt="Abroaden Logo">
+            </a>
+            <p class="flex items-center text-sm font-normal text-gray-500 dark:text-gray-400">نگهداری این سرویس
+                هزینه بر است و به صورت شخصی پرداخت میشود در صورت تمایل برای ادامه حیات آبرودن از ما حمایت مالی کنید</p>
+        </div>
+        <div class="flex items-center flex-shrink-0">
+            <a href="https://pinkary.com/@Fathi"
+                class="px-5 py-2 me-2 text-xs font-medium text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">حمایت
+                های مالی</a>
+            <button data-dismiss-target="#marketing-banner" type="button"
+                class="flex-shrink-0 inline-flex justify-center w-7 h-7 items-center text-gray-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 dark:hover:bg-gray-600 dark:hover:text-white">
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+                <span class="sr-only">بستن</span>
+            </button>
+        </div>
+    </div>
+
+
+
+    <section class="container mx-auto p-8 relative z-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg transparent-bg">
+            <div class="py-8 text-center">
+                <h1 class="text-4xl font-bold mb-4">سرویس دی ان اس اختصاصی ایران</h1>
+                <p class="text-lg mb-6">سرویس دی ان اس رایگان برای ایرانی‌های خارج از ایران، برای دسترسی به سایت‌های
+                    دولتی و بانکی ایران.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto p-8 relative z-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg transparent-bg">
+            <h1 class="text-2xl font-bold mb-4">تنظیمات DNS</h1>
+            <p class="mb-4 font-bold">برای کپی آپی و لینک ها روی آنها کلیک کنید</p>
+            <div class="mb-4">
+                <p class="mb-5">آی پی ها: <span
+                        class="bg-green-100 text-green-800 text-lg font-larg me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 cursor-pointer"
+                        onclick="copyToClipboard('85.133.201.120')">85.133.201.120</span><!--  <span
+                        class="bg-green-100 text-green-800 text-lg font-larg me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300 cursor-pointer"
+                        onclick="copyToClipboard('8.8.4.4')">8.8.4.4</span></p> -->
+                <p class="mb-5">لینک DoT: <span
+                        class="bg-green-100 text-green-800 text-lg font-larg me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+                        onclick="copyToClipboard('dns.abroden.ir')">dns.abroaden.ir</span></p>
+                <p class="mb-5">لینک DoH: <span
+                        class="bg-green-100 text-green-800 text-lg font-larg me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300"
+                        onclick="copyToClipboard('https://dns.abroaden.ir/dns-query')">https://dns.abroaden.ir/dns-query</span>
+                </p>
+                <blockquote
+                    class="tw-full p-4 text-green-700 border border-green-300 rounded-lg bg-green-50 dark:bg-gray-800 dark:border-green-800 dark:text-green-400">
+                    <p>پس از تنظیمات DNS برای مطمئن شدن از اینکه IP ایران دارید یا خیر، می‌توانید به وب‌سایت <a
+                            class="text-pink-500" href="https://myip.com"> Myip.com </a> مراجعه کنید.</p>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto p-8 relative z-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg transparent-bg">
+            <div class="flex flex-col">
+                <div class="tabs mb-4 flex justify-between">
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-windows">
+                        <i class="fab fa-windows"></i> ویندوز
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-mac">
+                        <i class="fab fa-apple"></i> مک
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-linux">
+                        <i class="fab fa-linux"></i> لینوکس
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-browsers">
+                        <i class="fab fa-chrome"></i> مرورگرها
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-android">
+                        <i class="fab fa-android"></i> اندروید
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-ios">
+                        <i class="fab fa-apple"></i> iOS
+                    </button>
+                    <button class="tab-button py-2 px-4 bg-gray-700 text-white rounded-t-lg" data-target="tab-videos">
+                        <i class="fab fa-video"></i> آموزش های ویدئویی
+                    </button>
+                </div>
+                <div class="tab-content bg-gray-800 p-4 rounded-b-lg">
+                    <div id="tab-windows" class="tab-pane">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در ویندوز</h2>
+                        <ol class="list-decimal list-inside">
+                            <li>کنترل پنل را باز کنید.</li>
+                            <li>به بخش Network and Sharing Center بروید.</li>
+                            <li>بر روی Change adapter settings کلیک کنید.</li>
+                            <li>بر روی شبکه فعال کلیک راست کرده و Properties را انتخاب کنید.</li>
+                            <li>Internet Protocol Version 4 (TCP/IPv4) را انتخاب کرده و Properties را انتخاب کنید.</li>
+                            <li>Use the following DNS server addresses را انتخاب کنید و.</li>
+                            <li>DNS 1 و DNS 2: در این قسمت آدرس‌های DNS را وارد کنید.:
+                                <ul>
+                                    <li>85.133.201.120</li>
+                                    <li>8.8.4.4</li>
+                                </ul>
+                            </li>
+                        </ol>
+                    </div>
+                    <div id="tab-mac" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در مک</h2>
+                        <ol class="list-decimal list-inside">
+                            <li>System Preferences را باز کنید.</li>
+                            <li>Network را انتخاب کنید.</li>
+                            <li>شبکه فعال را انتخاب کرده و Advanced را انتخاب کنید.</li>
+                            <li>DNS 1 و DNS 2: در این قسمت آدرس‌های DNS را وارد کنید.:
+                                <ul>
+                                    <li>85.133.201.120</li>
+                                    <li>8.8.4.4</li>
+                                </ul>
+                            </li>
+                            <li>OK را بزنید و تغییرات را ذخیره کنید.</li>
+                        </ol>
+                    </div>
+                    <div id="tab-linux" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در لینوکس</h2>
+                        <p>در حال بروزرسانی...</p>
+                    </div>
+                    <div id="tab-browsers" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در مرورگرها</h2>
+                        <h3 class="font-bold mb-1">گوگل کروم</h3>
+                        <ol class="list-decimal list-inside mb-4">
+                            <li>مرورگر را باز کنید.</li>
+                            <li>به تنظیمات بروید.</li>
+                            <li>به بخش Privacy and Security بروید.</li>
+                            <li>Use secure DNS را پیدا کرده و آن را فعال کنید.</li>
+                            <li>DNS های جدید را وارد کنید.</li>
+                            <li>https://dns.abroaden.ir/dns-query را وارد کرده و از صفحه تنظیمات خارج شوید</li>
+                            <li>حالا سایت های ایرانی را باز کنید.</li>
+                        </ol>
+                        <h3 class="font-bold mb-1">فایرفاکس</h3>
+                        <ol class="list-decimal list-inside mb-4">
+                            <li>مرورگر را باز کنید.</li>
+                            <li>به تنظیمات بروید.</li>
+                            <li>به بخش Network Settings بروید.</li>
+                            <li>Enable DNS over HTTPS را پیدا کرده و آن را فعال کنید.</li>
+                            <li>https://dns.abroaden.ir/dns-query را وارد کرده و از صفحه تنظیمات خارج شوید</li>
+                            <li>حالا سایت های ایرانی را باز کنید.</li>
+                        </ol>
+                    </div>
+                    <div id="tab-android" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در اندروید</h2>
+                        <ol class="list-decimal list-inside mb-4">
+                            <li>تنظیمات گوشی را باز کنید.</li>
+                            <li>به بخش Network & internet بروید.</li>
+                            <li>به Advanced بروید.</li>
+                            <li>به بخش Private DNS بروید.</li>
+                            <li>Private DNS provider hostname را انتخاب کرده و DNS های جدید را وارد کنید.</li>
+                            <li>DNS 1 و DNS 2: در این قسمت آدرس‌های DNS را وارد کنید.:
+                                <ul>
+                                    <li>85.133.201.120</li>
+                                    <li>8.8.4.4</li>
+                                </ul>
+                            </li>
+                            <li>تنظیمات را ذخیره کنید.</li>
+                        </ol>
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در TV اندروید</h2>
+                        <ol>
+                            <li><strong>اتصال به اینترنت:</strong> ابتدا مطمئن شوید که دستگاه اندروید تی‌وی شما به
+                                اینترنت متصل است.</li>
+                            <li><strong>دسترسی به تنظیمات:</strong> از صفحه اصلی دستگاه اندروید تی‌وی خود، به بخش
+                                تنظیمات (Settings) بروید. این بخش معمولاً با یک آیکون چرخ‌دنده نمایش داده می‌شود.</li>
+                            <li><strong>انتخاب شبکه:</strong> در منوی تنظیمات، به بخش "شبکه و اینترنت" (Network &
+                                Internet) بروید.</li>
+                            <li><strong>انتخاب شبکه Wi-Fi:</strong> اگر از اتصال وای‌فای استفاده می‌کنید، شبکه Wi-Fi که
+                                به آن متصل هستید را انتخاب کنید. در غیر این صورت، اگر از کابل اترنت استفاده می‌کنید، بخش
+                                اترنت را انتخاب کنید.</li>
+                            <li><strong>تنظیمات پیشرفته:</strong> پس از انتخاب شبکه، به قسمت "تنظیمات پیشرفته"
+                                (Advanced) بروید. این بخش معمولاً در پایین صفحه نمایش قرار دارد.</li>
+                            <li><strong>تنظیمات IP:</strong> در بخش تنظیمات پیشرفته، گزینه "تنظیمات IP" (IP settings) را
+                                انتخاب کنید.</li>
+                            <li><strong>تغییر به ایستا:</strong> به جای استفاده از DHCP، گزینه "ایستا" (Static) را
+                                انتخاب کنید.</li>
+                            <li><strong>وارد کردن تنظیمات IP:</strong> حالا باید اطلاعات IP خود را به صورت دستی وارد
+                                کنید. این شامل موارد زیر است:
+                                <ul>
+                                    <li>IP address: آدرس IP دستگاه شما.</li>
+                                    <li>Gateway: آدرس دروازه (Gateway) که معمولاً آدرس روتر شما است.</li>
+                                    <li>Network prefix length: طول پیشوند شبکه (معمولاً 24 برای یک شبکه خانگی).</li>
+                                    <li>DNS 1 و DNS 2: در این قسمت آدرس‌های DNS را وارد کنید.:
+                                        <ul>
+                                            <li>85.133.201.120</li>
+                                            <li>8.8.4.4</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong>ذخیره تنظیمات:</strong> پس از وارد کردن اطلاعات، تنظیمات را ذخیره کنید و از منو
+                                خارج شوید.</li>
+                        </ol>
+
+                        <h2 class="mt-2">استفاده از برنامه OL VA LI</h2>
+                        <ol>
+                            <li><strong>دانلود و نصب OL VA LI:</strong> برنامه OL VA LI را از Google Play Store بر روی
+                                دستگاه اندروید تی‌وی خود نصب کنید.</li>
+                            <li><strong>راه‌اندازی برنامه:</strong> برنامه را باز کرده و به تنظیمات DNS بروید.</li>
+                            <li><strong>انتخاب سرور DNS:</strong> در داخل برنامه، سرورهای DNS مورد نظر خود را انتخاب یا
+                                وارد کنید.</li>
+                            <li><strong>اعمال تنظیمات:</strong> پس از انتخاب DNS، تنظیمات را ذخیره کرده و از برنامه خارج
+                                شوید.</li>
+                        </ol>
+                    </div>
+                    <div id="tab-ios" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2">تنظیم DNS در iOS</h2>
+                        <ol class="list-decimal list-inside">
+                            <li>تنظیمات گوشی را باز کنید.</li>
+                            <li>به بخش Wi-Fi بروید.</li>
+                            <li>شبکه مورد نظر خود را انتخاب کنید.</li>
+                            <li>Configure DNS را انتخاب کنید.</li>
+                            <li>Manual را انتخاب کنید .</li>
+                            <li>DNS 1 و DNS 2: در این قسمت آدرس‌های DNS را وارد کنید.:
+                                <ul>
+                                    <li>85.133.201.120</li>
+                                    <li>8.8.4.4</li>
+                                </ul>
+                            </li>
+                            <li>ذخیره کنید.</li>
+                        </ol>
+                    </div>
+                    <div id="tab-videos" class="tab-pane hidden">
+                        <h2 class="text-xl font-bold mb-2 mt-2 text-indigo-500">Android TV</h2>
+                        <ol>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=K6rL4-NW8to"
+                                    target="_blank">How to change DNS
+                                    Servers on ANY ANDROID TV device</a>
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=_Co7BZ2Dww8"
+                                    target="_blank">How to Change DNS
+                                    Server in Android TV</a>
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=CuiHPRGOoVA"
+                                    target="_blank">How to Setup Smart
+                                    DNS Proxy on your Android TV Box</a>
+                            </li>
+                        </ol>
+
+                        <h2 class="text-xl font-bold mb-2 mt-2 text-indigo-500">Android (Mobile)</h2>
+                        <ol>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=LqltXQUzhig"
+                                    target="_blank">How to Change DNS
+                                    Server in Android for Mobile Data & WiFi</a>
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=qexVlzV61kc"
+                                    target="_blank">How To Setup
+                                    Private DNS On Any Android Device</a>
+                            </li>
+                        </ol>
+
+                        <h2 class="text-xl font-bold mb-2 mt-2 text-indigo-500">iOS (iPhone و iPad)</h2>
+                        <ol>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=_VlnS1k7m1A"
+                                    target="_blank">How to Change DNS
+                                    Settings on iPhone or iPad</a>
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=0EKZkg8rpNU"
+                                    target="_blank">How to use
+                                    Cloudflare DNS on iPhone and iPad</a>
+                            </li>
+                        </ol>
+
+                        <h2 class="text-xl font-bold mb-2 mt-2 text-indigo-500">آموزش DNS over TLS (DoT) و DNS over
+                            HTTPS (DoH)</h2>
+                        <ol>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=6hLHMA_tJ8k"
+                                    target="_blank">DNS Encryption
+                                    explained - DNS over TLS (DoT) & DNS over HTTPS (DoH)</a>
+                                این ویدیو به بررسی فنی و اهمیت رمزگذاری DNS پرداخته و نقش آن در امنیت اینترنت را توضیح
+                                می‌دهد.
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=t71--yEkZyY"
+                                    target="_blank">DNS-over-HTTPS (w/
+                                    Firefox, Pihole, & Wireshark)</a>
+                                این ویدیو نحوه پیاده‌سازی و تحلیل ترافیک DoH را با استفاده از Wireshark توضیح می‌دهد.
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=flnw78uhFkE"
+                                    target="_blank">DNS over HTTPS in
+                                    2 Minutes</a>
+                                این ویدیو به طور مختصر و سریع تکنولوژی DoH و کاربردهای آن را توضیح می‌دهد.
+                            </li>
+                            <li>
+                                <a class="text-pink-500" href="https://www.youtube.com/watch?v=G2uyhZnfjAs"
+                                    target="_blank">How to use DNS
+                                    over HTTPS using Docker + Pi-hole + Cloudflare + Docker Compose</a>
+                                در این ویدیو، نحوه استفاده از DoH با استفاده از Docker، Pi-hole و Cloudflare توضیح داده
+                                می‌شود.
+                            </li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto p-8 relative z-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg transparent-bg">
+            <h1 class="text-2xl font-bold mb-4">سوالات متداول</h1>
+            <div class="faq-list">
+                <div class="faq-item mb-4">
+                    <button
+                        class="faq-question bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg w-full text-right">
+                        ۱. آیا سرور DNS اختصاصی امن است؟
+                    </button>
+                    <div class="faq-answer hidden bg-gray-800 p-4 rounded-lg text-right">
+                        بله، استفاده از سرور DNS اختصاصی می‌تواند امنیت را افزایش دهد. با داشتن کنترل بیشتر بر روی
+                        تنظیمات DNS و قابلیت استفاده از فناوری‌های امنیتی مانند DNSSEC، می‌توانید از انتقال اطلاعات امن
+                        اطمینان حاصل کنید.
+                    </div>
+                </div>
+                <div class="faq-item mb-4">
+                    <button
+                        class="faq-question bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg w-full text-right">
+                        ۲. بعد از تنظیم سرور DNS اختصاصی، مشکل اتصال دارم. چطور باید عمل کنم؟
+                    </button>
+                    <div class="faq-answer hidden bg-gray-800 p-4 rounded-lg text-right">
+                        اگر پس از تنظیم سرور DNS اختصاصی به مشکل اتصال برخوردید، ابتدا اطمینان حاصل کنید که تنظیمات DNS
+                        درست انجام شده باشند. سپس می‌توانید با استفاده از ابزار‌های تست مانند nslookup یا dig، پاسخ‌های
+                        DNS را بررسی کنید و اطمینان حاصل کنید که سرور DNS اختصاصی به درستی پاسخ می‌دهد. در صورت لزوم، به
+                        پشتیبانی سرویس دهنده خود مراجعه کنید.
+                    </div>
+                </div>
+                <div class="faq-item mb-4">
+                    <button
+                        class="faq-question bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg w-full text-right">
+                        ۳. آیا بعد از تنظیم سرور DNS اختصاصی، سرعت استفاده از اینترنت افزایش می‌یابد؟
+                    </button>
+                    <div class="faq-answer hidden bg-gray-800 p-4 rounded-lg text-right">
+                        بله، به طور عمومی استفاده از سرور DNS اختصاصی می‌تواند به بهبود سرعت دسترسی به اینترنت کمک کند.
+                        با بهینه‌سازی پاسخ‌دهی سرور DNS و استفاده از تکنولوژی‌های پیشرفته مانند کشینگ DNS، ممکن است زمان
+                        پاسخ به درخواست‌های DNS کاهش یابد. </div>
+                </div>
+                <div class="faq-item mb-4">
+                    <button
+                        class="faq-question bg-gray-800 hover:bg-gray-700 text-white py-2 px-4 rounded-lg w-full text-right">
+                        ۴. آیا برای استفاده از سرور DNS اختصاصی نیاز به نرم‌افزار مجزا دارم؟
+                    </button>
+                    <div class="faq-answer hidden bg-gray-800 p-4 rounded-lg text-right">
+                        بسته به سیستم عامل شما و ترجیحات خودتون، ممکنه نیاز به نرم‌افزار مجزا برای پیکربندی یا
+                        مانیتورینگ سرور DNS اختصاصی داشته باشید. اما برای استفاده از سرور DNS اختصاصی خودتون، معمولاً
+                        تنها با پیکربندی تنظیمات DNS در تنظیمات شبکه کافی خواهد بود.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="container mx-auto p-8 relative z-10">
+        <div class="bg-gray-900 p-6 rounded-lg shadow-lg transparent-bg">
+            <h1 class="text-2xl font-bold mb-4 text-center">خدمات حرفه ای و تخصصی</h1>
+
+            <div class="flex flex-wrap justify-center">
+                <div class="w-4/12 md:w-1/3 px-4 mb-4">
+                    <div class="text-center">
+                        <img class="max-w-xl rounded-lg max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 w-full h-48"
+                            src="./ip-static.svg" alt="IP Static for Countries">
+                        <p>آی پی استاتیک تمامی کشورها</p>
+                    </div>
+                </div>
+                <div class="w-4/12 md:w-1/3 px-4 mb-4">
+                    <div class="text-center">
+                        <img class="max-w-xl rounded-lg max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 w-full h-48"
+                            src="./namava.webp" alt="Design">
+                        <p>خدمات DNS برای وبسایت های فیلم نظیر فیلیمو و نماوا</p>
+                    </div>
+                </div>
+                <div class="w-4/12 md:w-1/3 px-4 mb-4">
+                    <div class="text-center">
+                        <img class="max-w-xl rounded-lg max-w-lg transition-all duration-300 rounded-lg cursor-pointer filter grayscale hover:grayscale-0 w-full h-48"
+                            src="./software.svg" alt="Deploy Software Technologies">
+                        <p>طراحی و توسعه نرم افزار</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 p-4 mt-8 static inset-x-0 bottom-0 z-10">
+        <div class="container mx-auto text-center text-gray-400">
+            <p>© 2024 آبرودن. تمامی حقوق محفوظ است.</p>
+            <ul class="flex justify-center space-x-4 mt-2">
+                <li><a href="#" class="hover:text-gray-400 pr-10" data-modal-target="privacy-policy-modal"
+                        data-modal-toggle="privacy-policy-modal">حریم خصوصی</a></li>
+                <li><a href="#" class="hover:text-gray-400 pr-10" data-modal-target="terms-of-service-modal"
+                        data-modal-toggle="terms-of-service-modal">شرایط خدمات</a></li>
+                <li><a href="https://pinkary.com/@Fathi" class="hover:text-gray-400 pr-10">تماس با ما</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <div id="background"></div>
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.23/dist/vanta.rings.min.js"></script>
+    <script>
+        // Initialize Vanta.js effect
+        VANTA.RINGS({
+            el: "#background",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200, // Adjusted for full-page coverage
+            minWidth: 200, // Adjusted for full-page coverage
+            scale: 1.0,
+            color: 0x2d2d2d,
+            backgroundColor: 0x06172e
+        });
+
+        function copyToClipboard(text) {
+            const el = document.createElement('textarea');
+            el.value = text;
+            document.body.appendChild(el);
+            el.select();
+            document.execCommand('copy');
+            document.body.removeChild(el);
+            alert('متن کپی شد: ' + text);
+        }
+
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-pane');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const target = button.dataset.target;
+                tabContents.forEach(tabContent => {
+                    if (tabContent.id === target) {
+                        tabContent.classList.remove('hidden');
+                    } else {
+                        tabContent.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+
+        const faqQuestions = document.querySelectorAll('.faq-question');
+
+        faqQuestions.forEach((question, index) => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.classList.toggle('hidden');
+            });
+        });
+
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL8XR06NXN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-QL8XR06NXN');
+    </script>
+</body>
+
+</html>

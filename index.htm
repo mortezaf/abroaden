@@ -24,32 +24,7 @@
     <link href="https://cdn.jsdelivr.net/npm/@fontsource/vazir/index.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
-    <style>
-        body {
-            font-family: 'Vazir', sans-serif;
-            background-color: #2b3064;
-            overflow-x: hidden;
-            overflow-y: scroll;
-            /* Prevents scrolling */
-        }
-
-        .hidden {
-            display: none;
-        }
-
-        .transparent-bg {
-            background-color: #1f2937cc;
-        }
-
-        #background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-    </style>
+    <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body class="text-indigo-200">
@@ -142,10 +117,13 @@
     <header class="bg-gray-900 p-4 md:p-8">
         <nav class="container mx-auto flex flex-wrap md:flex-nowrap justify-between items-center">
             <img src="./logo-light.svg" class="h-6 mr-2 mb-2 md:mb-0" alt="Abroaden Logo">
-            <div class="text-lg md:text-xl font-bold text-white mb-2 md:mb-0">سرور DNS اختصاصی و رایگان ایران</div>
-            <div>
+            <div class="text-lg md:text-xl items-center font-bold text-white md:mr-5">سرور DNS اختصاصی و رایگان ایران</div>
+            <div class="md:flex-grow"></div>
+            <div class="md:flex md:items-center">
+                <a href="./blog/" class="block px-4 py-2 md:py-0">بلاگ</a>
+                <a href="/" class="block px-4 py-2 md:py-0">آموزش ها</a>
                 <a href="https://pinkary.com/@Fathi"
-                    class="block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded md:inline-block">
+                    class="block bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded md:inline-block md:ml-4">
                     راه های ارتباطی و حمایت مالی
                 </a>
             </div>
@@ -591,67 +569,9 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.23/dist/vanta.rings.min.js"></script>
-    <script>
-        // Initialize Vanta.js effect
-        VANTA.RINGS({
-            el: "#background",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: false,
-            minHeight: 200, // Adjusted for full-page coverage
-            minWidth: 200, // Adjusted for full-page coverage
-            scale: 1.0,
-            color: 0x2d2d2d,
-            backgroundColor: 0x06172e
-        });
-
-        function copyToClipboard(text) {
-            const el = document.createElement('textarea');
-            el.value = text;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            alert('متن کپی شد: ' + text);
-        }
-
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-pane');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                const target = button.dataset.target;
-                tabContents.forEach(tabContent => {
-                    if (tabContent.id === target) {
-                        tabContent.classList.remove('hidden');
-                    } else {
-                        tabContent.classList.add('hidden');
-                    }
-                });
-            });
-        });
-
-
-        const faqQuestions = document.querySelectorAll('.faq-question');
-
-        faqQuestions.forEach((question, index) => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                answer.classList.toggle('hidden');
-            });
-        });
-
-    </script>
-
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-QL8XR06NXN"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-QL8XR06NXN');
-    </script>
+    <script src="./app.js"></script>
 </body>
 
 </html>

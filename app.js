@@ -46,3 +46,23 @@ faqQuestions.forEach((question, index) => {
         answer.classList.toggle('hidden');
     });
 });
+
+document.querySelectorAll('[data-carousel-next]').forEach(button => {
+    button.addEventListener('click', () => {
+        const carousel = button.closest('[id="carouselExampleIndicators"]');
+        const track = carousel.querySelector('.flex');
+        const slides = track.children;
+        const currentSlide = track.scrollLeft / (track.scrollWidth / slides.length);
+        track.scrollLeft = (currentSlide + 1) * (track.scrollWidth / slides.length);
+    });
+});
+
+document.querySelectorAll('[data-carousel-prev]').forEach(button => {
+    button.addEventListener('click', () => {
+        const carousel = button.closest('[id="carouselExampleIndicators"]');
+        const track = carousel.querySelector('.flex');
+        const slides = track.children;
+        const currentSlide = track.scrollLeft / (track.scrollWidth / slides.length);
+        track.scrollLeft = (currentSlide - 1) * (track.scrollWidth / slides.length);
+    });
+});
